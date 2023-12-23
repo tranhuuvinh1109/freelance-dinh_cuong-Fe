@@ -83,9 +83,9 @@ const MediaPage = () => {
   return (
     <>
       {isLoading && createPortal(<LoadingPage />, document.body)}
-      <div className="flex justify-center items-center h-screen overflow-hidden">
+      <div className="md:flex md:justify-center md:items-center md:h-screen overflow-hidden">
         <div className="w-full md:w-3/5 md:border p-6 rounded-md md:shadow-xl">
-          <button className="mx-4 border px-4 py-2 rounded-md">
+          <button className="mx-4 my-2 border px-4 py-2 rounded-md">
             <Link to="view">
               <span className="flex items-center font-semibold hover:text-orange-400">
                 <TbPackageExport className="mt-1" />
