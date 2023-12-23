@@ -6,7 +6,9 @@ import { createPortal } from 'react-dom';
 import { LoadingPage } from '..';
 import { location } from '../../constant';
 import { Divider, DatePicker } from 'antd';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { TbPackageExport } from 'react-icons/tb';
 import * as yup from 'yup';
 const MediaPage = () => {
   const [data, setData] = useState({
@@ -83,6 +85,15 @@ const MediaPage = () => {
       {isLoading && createPortal(<LoadingPage />, document.body)}
       <div className="flex justify-center items-center h-screen overflow-hidden">
         <div className="w-full md:w-3/5 md:border p-6 rounded-md md:shadow-xl">
+          <button className="mx-4 border px-4 py-2 rounded-md">
+            <Link to="view">
+              <span className="flex items-center font-semibold hover:text-orange-400">
+                <TbPackageExport className="mt-1" />
+                View
+              </span>
+            </Link>
+          </button>
+
           <form onSubmit={handleSubmmit}>
             <h4 className="text-center font-semibold">THÔNG TIN TRUYỀN THÔNG TẠI CÁC CUNG ĐOẠN TUẦN TRA CÁP QUANG</h4>
             <div className="mt-4">
@@ -171,7 +182,7 @@ const MediaPage = () => {
           <div className="flex justify-end mt-4">
             <a
               href="https://mange-zdqk.onrender.com/api/download/"
-              className="flex items-center bg-green-400 md:w-1/5 px-3 py-2 rounded-md justify-center font-semibold text-white hover:bg-green-600"
+              className="flex items-center bg-green-400 md:w-2/5 px-3 py-2 rounded-md justify-center font-semibold text-white hover:bg-green-600"
             >
               <IoDownloadOutline fontSize={26} fontWeight={700} />
               Download Excel File
