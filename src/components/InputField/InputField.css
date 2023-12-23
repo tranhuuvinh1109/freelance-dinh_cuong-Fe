@@ -1,0 +1,20 @@
+.input_field {
+  position: relative;
+  width: 80%;
+  padding: 7px 9px;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-weight: 600;
+  font-size: 14px;
+}
+.field_error {
+  border: 1px solid rgb(239 68 68) !important;
+  color: rgb(239 68 68);
+}
+.message_error {
+  color: rgb(239 68 68);
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+  font-weight: 500;
+}
