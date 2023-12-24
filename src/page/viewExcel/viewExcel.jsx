@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import mediaAPI from '../../api/mediaAPI';
 import SheetCard from './components/SheetCard/SheetCard';
 import { IoChevronBackOutline } from 'react-icons/io5';
+import { createPortal } from 'react-dom';
+import { LoadingPage } from '..';
 
 const ViewExcel = () => {
   const [dataExcel, setDataExcel] = useState();
+  const [isLoading, setIsLoading] = useState(true);
   const convertTable = useMemo(() => {
     if (dataExcel?.length > 0) {
       return (
@@ -31,13 +34,16 @@ const ViewExcel = () => {
         </>
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataExcel]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await mediaAPI.getDataSheet('media', 'media');
+        setIsLoading(true);
+        const res = await mediaAPI.getDataMedia();
+        console.log(res);
         if (res.status === 200) {
-          const result = res.data.data.reduce((acc, curr) => {
+          const result = res.data.reduce((acc, curr) => {
             const location = curr[0];
             const existingItem = acc.find((item) => item.location === location);
 
@@ -54,30 +60,34 @@ const ViewExcel = () => {
       } catch (err) {
         console.log(err);
       }
+      setIsLoading(false);
     };
     fetchData();
   }, []);
   return (
-    <div className="px-6">
-      <div className="flex justify-end w-8/12 mx-auto my-6">
-        <Link to={'/'} className="flex items-center font-medium hover:text-orange-400">
-          <IoChevronBackOutline />
-          Back
-        </Link>
-      </div>
-      <div className="mt-4">
-        <div className="flex justify-between">
-          <div className="w-4/12">
-            <h4 className="text-center font-semibold">Đài Viễn Thông Quy Nhơn</h4>
-          </div>
-          <div className="w-8/12 text-center font-semibold">
-            <h4>THÔNG TIN TRUYỀN THÔNG TẠI CÁC CUNG ĐOẠN TUẦN TRA CÁP QUANG</h4>
-            <h6 className="italic">{'(Thực hiện từ ngày 07/03/2023)'}</h6>
-          </div>
+    <>
+      {isLoading && createPortal(<LoadingPage />, document.body)}
+      <div className="px-6">
+        <div className="flex justify-end w-8/12 mx-auto my-6">
+          <Link to={'/'} className="flex items-center font-medium hover:text-orange-400">
+            <IoChevronBackOutline />
+            Back
+          </Link>
         </div>
-        <div className="mt-4">{convertTable}</div>
+        <div className="mt-4">
+          <div className="flex justify-between">
+            <div className="w-4/12">
+              <h4 className="text-center font-semibold">Đài Viễn Thông Quy Nhơn</h4>
+            </div>
+            <div className="w-8/12 text-center font-semibold">
+              <h4>THÔNG TIN TRUYỀN THÔNG TẠI CÁC CUNG ĐOẠN TUẦN TRA CÁP QUANG</h4>
+              <h6 className="italic">{'(Thực hiện từ ngày 07/03/2023)'}</h6>
+            </div>
+          </div>
+          <div className="mt-4">{convertTable}</div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
