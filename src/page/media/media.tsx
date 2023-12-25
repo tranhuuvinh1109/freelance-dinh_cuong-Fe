@@ -10,9 +10,10 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { TbPackageExport } from 'react-icons/tb';
 import * as yup from 'yup';
+
 const MediaPage = () => {
   const [data, setData] = useState({
-    location: '',
+    location: 'QNN/LKN',
     name_ttcq: '',
     phone_staff: '',
     km: '',
@@ -52,7 +53,7 @@ const MediaPage = () => {
 
       if (res.status === 201) {
         setData({
-          location: '',
+          location: 'QNN/LKN',
           name_ttcq: '',
           phone_staff: '',
           km: '',
@@ -85,7 +86,7 @@ const MediaPage = () => {
       {isLoading && createPortal(<LoadingPage />, document.body)}
       <div className="md:flex md:justify-center md:items-center md:h-screen overflow-hidden">
         <div className="w-full md:w-3/5 md:border p-6 rounded-md md:shadow-xl">
-          <button className="mx-4 my-2 border px-4 py-2 rounded-md">
+          <button className="mb-10 my-2 border px-4 py-2 rounded-md">
             <Link to="view">
               <span className="flex items-center font-semibold hover:text-orange-400">
                 <TbPackageExport className="mt-1" />
@@ -93,8 +94,15 @@ const MediaPage = () => {
               </span>
             </Link>
           </button>
+          <div className="flex justify-center">
+            <img
+              className="h-[80px] md:h-[100px]"
+              src="https://brademar.com/wp-content/uploads/2022/09/VNPT-Logo-PNG-1.png"
+              alt="VNPT"
+            />
+          </div>
 
-          <form onSubmit={handleSubmmit}>
+          <form onSubmit={handleSubmmit} className="mt-4">
             <h4 className="text-center font-semibold">THÔNG TIN TRUYỀN THÔNG TẠI CÁC CUNG ĐOẠN TUẦN TRA CÁP QUANG</h4>
             <div className="mt-4">
               <div className="flex flex-wrap justify-around">
@@ -102,6 +110,7 @@ const MediaPage = () => {
                   <select
                     name="location"
                     onChange={handleChange}
+                    defaultValue={location[0].value}
                     className=" w-full px-[9px] py-[7px] border rounded-md font-semibold"
                   >
                     {location.map((option, index) => {

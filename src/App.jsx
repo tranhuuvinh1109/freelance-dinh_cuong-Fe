@@ -10,8 +10,8 @@ function App() {
       <div className="App">
         <Toaster position="top-center" reverseOrder={false} />
         <Routes>
+          <Route path="/view" element={<ViewExcelPage />} />
           <Route path="/" element={<MediaPage />} />
-          <Route path="view" element={<ViewExcelPage />} />
         </Routes>
       </div>
     </AppContext>
