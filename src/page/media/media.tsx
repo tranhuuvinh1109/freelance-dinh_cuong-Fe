@@ -87,7 +87,7 @@ const MediaPage = () => {
       <div className="md:flex md:justify-center md:items-center md:h-screen overflow-hidden">
         <div className="w-full md:w-3/5 md:border p-6 rounded-md md:shadow-xl">
           <button className="mb-10 my-2 border px-4 py-2 rounded-md">
-            <Link to="view">
+            <Link to="/media/view">
               <span className="flex items-center font-semibold hover:text-orange-400">
                 <TbPackageExport className="mt-1" />
                 View
@@ -101,7 +101,6 @@ const MediaPage = () => {
               alt="VNPT"
             />
           </div>
-
           <form onSubmit={handleSubmmit} className="mt-4">
             <h4 className="text-center font-semibold">THÔNG TIN TRUYỀN THÔNG TẠI CÁC CUNG ĐOẠN TUẦN TRA CÁP QUANG</h4>
             <div className="mt-4">

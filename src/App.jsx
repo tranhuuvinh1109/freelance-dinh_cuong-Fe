@@ -1,8 +1,9 @@
 import AppContext from './context/AppContext';
 import { Route, Routes } from 'react-router-dom';
-import { MediaPage, ViewExcelPage } from './page';
+import { MediaPage, ReportDatePage, ViewExcelPage } from './page';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
+import Layout from './layout/layout';
 
 function App() {
   return (
@@ -10,8 +11,12 @@ function App() {
       <div className="App">
         <Toaster position="top-center" reverseOrder={false} />
         <Routes>
-          <Route path="/view" element={<ViewExcelPage />} />
-          <Route path="/" element={<MediaPage />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<MediaPage />} />
+            <Route path="media" element={<MediaPage />} />
+            <Route path="media/view" element={<ViewExcelPage />} />
+            <Route path="report-day" element={<ReportDatePage />} />
+          </Route>
         </Routes>
       </div>
     </AppContext>

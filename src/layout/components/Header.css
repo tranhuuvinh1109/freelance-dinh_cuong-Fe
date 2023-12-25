@@ -1,0 +1,13 @@
+.brand-text {
+  /* font-family: 'Oleo Script', cursive; */
+  font-size: 36px;
+}
+.nav-item {
+  /* font-family: 'Montserrat', cursive; */
+  font-size: 20px;
+  font-weight: 500;
+}
+.nav-item-active {
+  font-weight: 700;
+  color: rgb(249 115 22);
+}

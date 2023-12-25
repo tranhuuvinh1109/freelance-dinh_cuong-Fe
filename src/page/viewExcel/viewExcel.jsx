@@ -67,7 +67,7 @@ const ViewExcel = () => {
   return (
     <>
       {isLoading && createPortal(<LoadingPage />, document.body)}
-      <div className="px-6">
+      <div className="px-6 mt-16">
         <div className="flex justify-end w-8/12 mx-auto my-6">
           <Link to={'/'} className="flex items-center font-medium hover:text-orange-400">
             <IoChevronBackOutline />

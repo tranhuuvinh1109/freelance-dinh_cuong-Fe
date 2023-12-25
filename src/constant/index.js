@@ -16,5 +16,15 @@ const location = [
     value: 'QNN/NTG',
   },
 ];
+const state = [
+  {
+    label: 'BT',
+    value: 'BT',
+  },
+  {
+    label: 'SC',
+    value: 'SC',
+  },
+];
 
-export { location };
+export { location, state };
