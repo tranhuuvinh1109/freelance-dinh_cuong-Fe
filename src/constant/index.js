@@ -1,5 +1,9 @@
 const location = [
   {
+    label: 'Chọn trạm',
+    value: '',
+  },
+  {
     label: 'QNN/LKN',
     value: 'QNN/LKN',
   },
@@ -17,6 +21,10 @@ const location = [
   },
 ];
 const state = [
+  {
+    label: 'Chọn tình trạng',
+    value: '',
+  },
   {
     label: 'BT',
     value: 'BT',

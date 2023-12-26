@@ -16,7 +16,7 @@ const Header = () => {
             <li className="nav-item ">
               <NavLink
                 to="/"
-                exact
+                exact="true"
                 className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'nav-item-active' : '')}
               >
                 Trang chủ
@@ -25,7 +25,7 @@ const Header = () => {
             <li className="nav-item ">
               <NavLink
                 to="/report-day"
-                exact
+                exact="true"
                 className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'nav-item-active' : '')}
               >
                 Báo cáo thông tin Ngày
@@ -34,7 +34,7 @@ const Header = () => {
             <li className="nav-item ">
               <NavLink
                 to="/media"
-                exact
+                exact="true"
                 className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'nav-item-active' : '')}
               >
                 Truyền thông
