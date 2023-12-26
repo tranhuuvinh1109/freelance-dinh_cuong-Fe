@@ -1,6 +1,6 @@
 import AppContext from './context/AppContext';
 import { Route, Routes } from 'react-router-dom';
-import { MediaPage, ReportDatePage, ViewExcelPage } from './page';
+import { MediaPage, ReportDatePage, ViewExcelPage, ViewListReportPage } from './page';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
 import Layout from './layout/layout';
@@ -16,6 +16,7 @@ function App() {
             <Route path="media" element={<MediaPage />} />
             <Route path="media/view" element={<ViewExcelPage />} />
             <Route path="report-day" element={<ReportDatePage />} />
+            <Route path="report/view" element={<ViewListReportPage />} />
           </Route>
         </Routes>
       </div>

@@ -8,12 +8,13 @@ import reportAPI from '../../api/reportAPI';
 import { createPortal } from 'react-dom';
 import { IoMdCloudDownload } from 'react-icons/io';
 import { LoadingPage } from '..';
+import { Link } from 'react-router-dom';
 const { TextArea } = Input;
 const ReportDate = () => {
   const todayDate = format(new Date(), 'dd/MM/yyyy');
   const [modalOpen, setModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [existWord, setExistWord] = useState('13');
+  const [existWord, setExistWord] = useState('');
   const [dataReport, setDataReport] = useState({
     location: '',
     dateReport: todayDate,
@@ -180,16 +181,22 @@ const ReportDate = () => {
             )}
           </div>
         </Modal>
-        <div className="flex justify-center">
+        <div className="flex justify-around">
           <button
             onClick={() => setModalOpen(true)}
             className="font-semibold text-white px-6 py-2 rounded-md bg-green-400 hover:bg-green-600 "
           >
             Tạo báo cáo ngày
           </button>
+          <Link
+            className="bg-orange-400 flex items-center px-6 rounded-md font-semibold text-white hover:bg-orange-600"
+            to={'/report/view'}
+          >
+            Danh sách báo cáo
+          </Link>
         </div>
         {existWord && (
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-4">
             <a
               className="flex items-center font-semibold text-white px-6 py-2 rounded-md bg-red-400 hover:bg-red-600 "
               href={`https://mange-zdqk.onrender.com/api/report/download/${existWord}`}
