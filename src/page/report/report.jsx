@@ -127,7 +127,7 @@ const ReportDate = () => {
   return (
     <>
       {isLoading && createPortal(<LoadingPage />, document.body)}
-      <div className="mt-24 w-[1000px] mx-auto">
+      <div className="mt-24 md:w-[1000px] mx-auto">
         <Modal
           title="Tạo báo cáo hàng ngày"
           centered

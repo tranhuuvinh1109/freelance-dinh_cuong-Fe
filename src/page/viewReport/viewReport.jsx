@@ -28,9 +28,9 @@ const ViewListReport = () => {
   return (
     <>
       {isLoading && createPortal(<LoadingPage />, document.body)}
-      <div className="px-24 mt-24">
-        <div className="flex justify-between">
-          <div className="w-[30%] p-4">
+      <div className="md:px-24 mt-24">
+        <div className="md:flex justify-between">
+          <div className="md:w-[30%] h-[300px] mb-10 md:mb-0 overflow-y-auto p-4">
             {listReport?.map((report) => {
               return (
                 <div
@@ -45,7 +45,7 @@ const ViewListReport = () => {
               );
             })}
           </div>
-          <div className="w-[70%] p-4">
+          <div className="md:w-[70%] p-4">
             {chooseReport && (
               <div className="border px-6 py-4">
                 <h4 className="text-center font-semibold text-xl">

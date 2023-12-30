@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { navBar } from '../../constant';
 
 const Header = () => {
-  const [openMobile, setOpenMobile] = useState(true);
+  const [openMobile, setOpenMobile] = useState(false);
   const handleOpen = () => {
     setOpenMobile(!openMobile);
   };
@@ -71,33 +71,6 @@ const Header = () => {
                 </li>
               );
             })}
-            {/* <li className="nav-item ">
-              <NavLink
-                to="/"
-                exact="true"
-                className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'nav-item-active' : '')}
-              >
-                Trang chủ
-              </NavLink>
-            </li>
-            <li className="nav-item ">
-              <NavLink
-                to="/report-day"
-                exact="true"
-                className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'nav-item-active' : '')}
-              >
-                Báo cáo thông tin Ngày
-              </NavLink>
-            </li>
-            <li className="nav-item ">
-              <NavLink
-                to="/media"
-                exact="true"
-                className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'nav-item-active' : '')}
-              >
-                Truyền thông
-              </NavLink>
-            </li> */}
           </ul>
           <div className="w-2/12 flex justify-end">
             <NavLink
