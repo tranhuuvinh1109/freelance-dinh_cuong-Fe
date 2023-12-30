@@ -35,4 +35,19 @@ const state = [
   },
 ];
 
-export { location, state };
+const navBar = [
+  {
+    label: 'Trang chủ',
+    url: '/',
+  },
+  {
+    label: 'Báo cáo thông tin Ngày',
+    url: '/report-day',
+  },
+  {
+    label: 'Truyền thông',
+    url: '/media',
+  },
+];
+
+export { location, state, navBar };
