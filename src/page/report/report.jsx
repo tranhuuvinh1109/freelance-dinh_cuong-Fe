@@ -19,8 +19,9 @@ const ReportDate = () => {
     location: '',
     dateReport: todayDate,
     device: '',
-    cable: '',
-    power: '',
+    svDevice: '',
+    svCable: '',
+    svPower: '',
     report: '',
     otherJob: '',
     exist: '',
@@ -40,6 +41,9 @@ const ReportDate = () => {
     propose: Yup.string().required('Vui lòng chọn nhập ĐỀ XUẤT KIẾN NGHỊ'),
     creator: Yup.string().required('Vui lòng nhập họ và tên người viết báo cáo'),
     date: Yup.string(),
+    svDevice: Yup.string(),
+    svCable: Yup.string(),
+    svPower: Yup.string(),
   });
 
   const handleChangeData = (e) => {
@@ -79,8 +83,26 @@ const ReportDate = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await validationSchema.validate(dataReport, { abortEarly: false });
-
+      await validationSchema.validate(dataReport);
+      console.log(
+        {
+          location: dataReport.location,
+          date_report: dataReport.dateReport,
+          device: dataReport.device,
+          cable: dataReport.cable,
+          power: dataReport.power,
+          report: dataReport.report,
+          other_job: dataReport.otherJob,
+          exist: dataReport.exist,
+          propose: dataReport.propose,
+          creator: dataReport.creator,
+          date: dataReport.dateReport,
+          cv_device: dataReport.svDevice,
+          cv_cable: dataReport.svCable,
+          cv_power: dataReport.svPower,
+        },
+        dataReport,
+      );
       const res = await reportAPI.createReport({
         location: dataReport.location,
         date_report: dataReport.dateReport,
@@ -93,6 +115,9 @@ const ReportDate = () => {
         propose: dataReport.propose,
         creator: dataReport.creator,
         date: dataReport.dateReport,
+        sv_device: dataReport.svDevice,
+        sv_cable: dataReport.svCable,
+        sv_power: dataReport.svPower,
       });
       if (res.status === 201) {
         setDataReport({
@@ -108,7 +133,6 @@ const ReportDate = () => {
           creator: '',
           date: todayDate,
         });
-        console.log('handleSubmit', res.data);
         toast.success('Tạo báo cáo thành công !');
         fetchReportExist(res.data.data.location.split('/')[1], res.data.data.date_report.replaceAll('/', '-'));
       }
@@ -127,7 +151,7 @@ const ReportDate = () => {
   return (
     <>
       {isLoading && createPortal(<LoadingPage />, document.body)}
-      <div className="mt-24 w-[1000px] mx-auto">
+      <div className="mt-24 md:w-[1000px] mx-auto">
         <Modal
           title="Tạo báo cáo hàng ngày"
           centered
@@ -199,7 +223,7 @@ const ReportDate = () => {
           <div className="flex justify-center mt-4">
             <a
               className="flex items-center font-semibold text-white px-6 py-2 rounded-md bg-red-400 hover:bg-red-600 "
-              href={`https://mange-zdqk.onrender.com/api/report/download/${existWord}`}
+              href={`http://127.0.0.1:8000/api/report/download/${existWord}`}
             >
               <IoMdCloudDownload fontSize={24} fontWeight={600} />
               Tải báo cáo
@@ -223,54 +247,93 @@ const ReportDate = () => {
                 đến 07h00 ngày <span className="font-semibold">{dataReport.dateReport}</span>.
               </h6>
               <h4 className="font-semibold mt-6">I. TÌNH HÌNH THÔNG TIN:</h4>
-              <div className="flex items-center mt-2">
-                <h6 onClick={() => console.log(dataReport)}>1. Thiết bị viễn thông:</h6>
-                <Select
-                  defaultValue={state[0].value}
-                  className="ml-2"
-                  onChange={(value) =>
-                    setDataReport({
-                      ...dataReport,
-                      device: value,
-                    })
-                  }
-                  value={dataReport.device}
-                  options={state}
-                />
+              <div className=" mt-2">
+                <div className="flex items-center">
+                  <h6 onClick={() => console.log(dataReport)}>1. Thiết bị viễn thông:</h6>
+                  <Select
+                    defaultValue={state[0].value}
+                    className="ml-2"
+                    onChange={(value) =>
+                      setDataReport({
+                        ...dataReport,
+                        device: value,
+                      })
+                    }
+                    value={dataReport.device}
+                    options={state}
+                  />
+                </div>
+                <div>
+                  {dataReport.device === 'SV' && (
+                    <Input
+                      placeholder="Mô tả sự vụ"
+                      className="mt-1"
+                      value={dataReport.svDevice}
+                      name="svDevice"
+                      onChange={handleChangeData}
+                    />
+                  )}
+                </div>
               </div>
-              <div className="flex items-center mt-2">
-                <h6>2. Cáp quang:</h6>
-                <Select
-                  defaultValue={state[0].value}
-                  className="ml-2"
-                  onChange={(value) =>
-                    setDataReport({
-                      ...dataReport,
-                      cable: value,
-                    })
-                  }
-                  value={dataReport.cable}
-                  options={state}
-                />
+              <div className="mt-2">
+                <div className="flex items-center ">
+                  <h6>2. Cáp quang:</h6>
+                  <Select
+                    defaultValue={state[0].value}
+                    className="ml-2"
+                    onChange={(value) =>
+                      setDataReport({
+                        ...dataReport,
+                        cable: value,
+                      })
+                    }
+                    value={dataReport.cable}
+                    options={state}
+                  />
+                </div>
+                <div>
+                  {dataReport.cable === 'SV' && (
+                    <Input
+                      placeholder="Mô tả sự vụ"
+                      className="mt-1"
+                      value={dataReport.svCable}
+                      name="svCable"
+                      onChange={handleChangeData}
+                    />
+                  )}
+                </div>
               </div>
-              <div className="flex items-center mt-2">
-                <h6>3. Nguồn điện, điều hoà</h6>
-                <Select
-                  defaultValue={state[0].value}
-                  className="ml-2"
-                  onChange={(value) =>
-                    setDataReport({
-                      ...dataReport,
-                      power: value,
-                    })
-                  }
-                  value={dataReport.power}
-                  options={state}
-                />
+              <div className="mt-2">
+                <div className="flex items-center ">
+                  <h6>3. Nguồn điện, điều hoà</h6>
+                  <Select
+                    defaultValue={state[0].value}
+                    className="ml-2"
+                    onChange={(value) =>
+                      setDataReport({
+                        ...dataReport,
+                        power: value,
+                      })
+                    }
+                    value={dataReport.power}
+                    options={state}
+                  />
+                </div>
+                <div>
+                  {dataReport.power === 'SV' && (
+                    <Input
+                      placeholder="Mô tả sự vụ"
+                      className="mt-1"
+                      value={dataReport.svPower}
+                      name="svPower"
+                      onChange={handleChangeData}
+                    />
+                  )}
+                </div>
               </div>
               <p className="mt-4 text-sm italic">
                 <span className="text-red-600">Chú thích:</span> <span className="font-semibold">BT:</span> Bình thường,{' '}
-                <span className="font-semibold">SC:</span> Sự cố
+                <span className="font-semibold">SV:</span> Sự vụ
               </p>
               <h4 className="font-semibold mt-6">II. TÌNH HÌNH CÔNG VIỆC:</h4>
               <div className="mt-2">
