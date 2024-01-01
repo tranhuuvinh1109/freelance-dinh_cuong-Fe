@@ -30,8 +30,8 @@ const state = [
     value: 'BT',
   },
   {
-    label: 'SC',
-    value: 'SC',
+    label: 'SV',
+    value: 'SV',
   },
 ];
 
