@@ -84,25 +84,7 @@ const ReportDate = () => {
     setIsLoading(true);
     try {
       await validationSchema.validate(dataReport);
-      console.log(
-        {
-          location: dataReport.location,
-          date_report: dataReport.dateReport,
-          device: dataReport.device,
-          cable: dataReport.cable,
-          power: dataReport.power,
-          report: dataReport.report,
-          other_job: dataReport.otherJob,
-          exist: dataReport.exist,
-          propose: dataReport.propose,
-          creator: dataReport.creator,
-          date: dataReport.dateReport,
-          cv_device: dataReport.svDevice,
-          cv_cable: dataReport.svCable,
-          cv_power: dataReport.svPower,
-        },
-        dataReport,
-      );
+
       const res = await reportAPI.createReport({
         location: dataReport.location,
         date_report: dataReport.dateReport,
@@ -237,7 +219,7 @@ const ReportDate = () => {
                 Báo cáo ADG Trạm VT {dataReport.location} ngày {dataReport.dateReport}
               </h4>
               <h6 className="mt-6">
-                Kính gửi: <span className="font-semibold">Ban lãnh đạo Đài VT QNN</span>
+                Kính gửi: <span className="font-semibold">Lãnh đạo Đài VT QNN</span>
               </h6>
               <h6 className="mt-2">
                 Trạm VT {dataReport.location} báo cáo tình hình thông tin liên lạc từ 07h00 ngày{' '}

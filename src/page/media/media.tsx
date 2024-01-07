@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import mediaAPI from '../../api/mediaAPI';
 import { InputField } from '../../components';
 import { IoDownloadOutline } from 'react-icons/io5';
 import { createPortal } from 'react-dom';
 import { LoadingPage } from '..';
-import { location } from '../../constant';
+import { location, staffs } from '../../constant';
 import { Divider, DatePicker } from 'antd';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -13,7 +13,7 @@ import * as yup from 'yup';
 
 const MediaPage = () => {
   const [data, setData] = useState({
-    location: 'QNN/LKN',
+    location: '',
     name_ttcq: '',
     phone_staff: '',
     km: '',
@@ -27,8 +27,8 @@ const MediaPage = () => {
 
   const validationSchema = yup.object().shape({
     location: yup.string().required('Vui lòng chọn địa điểm.'),
-    name_ttcq: yup.string().required('Vui lòng nhập tên TTCQ.'),
-    phone_staff: yup.string().required('Vui lòng nhập số điện thoại.'),
+    name_ttcq: yup.string().required('Vui lòng chọn tên nhân viên.'),
+    phone_staff: yup.string().required('Nếu không hiện số điện thoại, vui lòng chọn lại tên nhân viên.'),
     km: yup.string().required('Vui lòng nhập km đường bộ.'),
     name: yup.string().required('Vui lòng nhập tên.'),
     phone: yup.string().required('Vui lòng nhập số điện thoại.'),
@@ -37,11 +37,90 @@ const MediaPage = () => {
   });
 
   const handleChange = (e) => {
+    if (e.target.name === 'name_ttcq') {
+      const item = staffs.filter((staff) => staff.id === e.target.value);
+      if (item.length > 0) {
+        setData({
+          ...data,
+          [e.target.name]: e.target.value,
+          phone_staff: item[0].phone,
+        });
+      } else {
+        setData({
+          ...data,
+          [e.target.name]: e.target.value,
+        });
+      }
+      return;
+    }
+    if (e.target.name === 'location') {
+      setData({
+        ...data,
+        [e.target.name]: e.target.value,
+        name_ttcq: '',
+        phone_staff: '',
+      });
+      return;
+    }
     setData({
       ...data,
       [e.target.name]: e.target.value,
     });
   };
+  const filterStaff = useMemo(() => {
+    if (data.location) {
+      const result = staffs.filter((staff) => staff.branch === data.location);
+      if (result.length > 0) {
+        return (
+          <>
+            <div className="md:w-[30%] my-2 w-full flex items-center ">
+              <select
+                name="name_ttcq"
+                defaultValue={result[0].id}
+                onChange={handleChange}
+                className=" w-full px-[9px] py-[7px] border rounded-md font-semibold"
+              >
+                {result.map((staff, index) => {
+                  return (
+                    <option key={index} value={staff.id}>
+                      {staff.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            <InputField
+              placeholder={'Số điện thoại'}
+              className="md:w-[30%] my-2 w-full"
+              name="phone_staff"
+              readOnly={true}
+              value={data.phone_staff}
+              onChange={handleChange}
+            />
+          </>
+        );
+      } else {
+        return (
+          <>
+            <InputField
+              placeholder={'Tên Nhân viên'}
+              className="md:w-[30%] my-2 w-full"
+              name="name_ttcq"
+              value={data.name_ttcq}
+              onChange={handleChange}
+            />
+            <InputField
+              placeholder={'Số điện thoại'}
+              className="md:w-[30%] my-2 w-full"
+              name="phone_staff"
+              value={data.phone_staff}
+              onChange={handleChange}
+            />
+          </>
+        );
+      }
+    }
+  }, [data]);
 
   const handleSubmmit = async (e) => {
     e.preventDefault();
@@ -65,6 +144,7 @@ const MediaPage = () => {
         toast.success('Tạo bản ghi mới thành công !');
       }
     } catch (err) {
+      console.log('er', data);
       const validationErrors = {};
       if (err instanceof yup.ValidationError) {
         err.inner.forEach((error) => {
@@ -121,20 +201,7 @@ const MediaPage = () => {
                     })}
                   </select>
                 </div>
-                <InputField
-                  placeholder={'Tên TTCQ'}
-                  className="md:w-[30%] my-2 w-full"
-                  name="name_ttcq"
-                  value={data.name_ttcq}
-                  onChange={handleChange}
-                />
-                <InputField
-                  placeholder={'Số điện thoại'}
-                  className="md:w-[30%] my-2 w-full"
-                  name="phone_staff"
-                  value={data.phone_staff}
-                  onChange={handleChange}
-                />
+                {filterStaff}
               </div>
               <Divider orientation="left">Thông tin nhà dân/Cơ quan</Divider>
               <div className="flex flex-wrap justify-around">

@@ -1,10 +1,20 @@
+/* eslint-disable react/prop-types */
 import './InputField.css';
 
-// eslint-disable-next-line react/prop-types
-const InputField = ({ name, type = 'text', value, onChange, error = '', className = '', placeholder }) => {
+const InputField = ({
+  name,
+  type = 'text',
+  value,
+  onChange,
+  error = '',
+  className = '',
+  placeholder,
+  readOnly = false,
+}) => {
   return (
     <div className={`${className} field_wrapper`}>
       <input
+        readOnly={readOnly}
         name={name}
         onChange={onChange}
         value={value}
