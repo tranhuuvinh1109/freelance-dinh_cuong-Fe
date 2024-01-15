@@ -164,8 +164,8 @@ const MediaPage = () => {
   return (
     <>
       {isLoading && createPortal(<LoadingPage />, document.body)}
-      <div className="md:flex md:justify-center mt-24 overflow-hidden">
-        <div className="w-full md:w-3/5 md:border p-6 rounded-md md:shadow-xl">
+      <div className="md:flex md:justify-center mt-24 bg-[var(--background-color)] overflow-hidden">
+        <div className="w-full md:w-3/5 md:border p-6 rounded-md bg-white md:shadow-xl">
           <button className="mb-10 my-2 border px-4 py-2 rounded-md">
             <Link to="/media/view">
               <span className="flex items-center font-semibold hover:text-orange-400">

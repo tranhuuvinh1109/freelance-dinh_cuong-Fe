@@ -60,6 +60,10 @@ const navBar = [
     label: 'Truyền thông',
     url: '/media',
   },
+  {
+    label: 'Tạo kế hoạch tuần tra',
+    url: '/inspect',
+  },
 ];
 
 const staffs = [

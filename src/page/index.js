@@ -3,5 +3,6 @@ import { default as LoadingPage } from './loading/Loading';
 import { default as ViewExcelPage } from './viewExcel/viewExcel';
 import { default as ReportDatePage } from './report/report';
 import { default as ViewListReportPage } from './viewReport/viewReport';
+import { default as MakeInspectionPage } from './inspect/inspect';
 
-export { MediaPage, LoadingPage, ViewExcelPage, ReportDatePage, ViewListReportPage };
+export { MediaPage, LoadingPage, ViewExcelPage, ReportDatePage, ViewListReportPage, MakeInspectionPage };

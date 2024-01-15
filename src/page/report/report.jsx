@@ -187,19 +187,21 @@ const ReportDate = () => {
             )}
           </div>
         </Modal>
-        <div className="flex justify-around">
-          <button
-            onClick={() => setModalOpen(true)}
-            className="font-semibold text-white px-6 py-2 rounded-md bg-green-400 hover:bg-green-600 "
-          >
-            Tạo báo cáo ngày
-          </button>
-          <Link
-            className="bg-orange-400 flex items-center px-6 rounded-md font-semibold text-white hover:bg-orange-600"
-            to={'/report/view'}
-          >
-            Danh sách báo cáo
-          </Link>
+        <div className="w-full h-fit flex justify-center">
+          <div className="w-fit h-[100px] bg-white flex justify-center items-center gap-20 px-12 rounded-md">
+            <button
+              onClick={() => setModalOpen(true)}
+              className="font-semibold text-white w-[200px] h-[50px] rounded-md bg-[var(--main-theme-color)] hover:bg-[var(--main-theme-color-hover)] "
+            >
+              Tạo báo cáo ngày
+            </button>
+            <Link
+              className="bg-orange-400 flex items-center justify-center w-[200px] h-[50px] px-6 rounded-md font-semibold text-white hover:bg-orange-600"
+              to={'/report/view'}
+            >
+              Danh sách báo cáo
+            </Link>
+          </div>
         </div>
         {existWord && (
           <div className="flex justify-center mt-4">
@@ -214,7 +216,7 @@ const ReportDate = () => {
         )}
         {!modalOpen && dataReport.location !== '' && dataReport.dateReport !== '' && (
           <form onSubmit={handleSubmit}>
-            <div className="border px-6 py-4 mt-6">
+            <div className="border px-6 py-4 mt-6 rounded-md bg-white">
               <h4 className="text-center font-semibold text-xl">
                 Báo cáo ADG Trạm VT {dataReport.location} ngày {dataReport.dateReport}
               </h4>
@@ -382,7 +384,7 @@ const ReportDate = () => {
             <div className="mt-4 mb-24 flex justify-around">
               <button
                 onClick={handleClearData}
-                className="border border-orange-400 hover:text-orange-600 hover:border-orange-600 text-orange-400 font-medium px-6 py-2 rounded-md"
+                className="border border-orange-400 hover:text-orange-600 hover:border-orange-600 text-orange-400 bg-white font-medium px-6 py-2 rounded-md"
               >
                 Xóa dữ liệu
               </button>
