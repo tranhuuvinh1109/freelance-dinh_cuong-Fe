@@ -1,0 +1,52 @@
+[
+  {
+    "title": "STT",
+    "index": "stt",
+    "width": 30
+  },
+  {
+    "title": "Đài",
+    "index": "dai",
+    "width": 30
+  },
+  {
+    "title": "Cung đoạn",
+    "index": "cungdoan",
+    "width": 110
+  },
+  {
+    "title": "Hệ thống",
+    "index": "hethong",
+    "width": 110
+  },
+  {
+    "title": "Cáp QH",
+    "index": "capqh",
+    "width": 100
+  },
+  {
+    "title": "Cáp ƯC",
+    "index": "capuc",
+    "width": 100
+  },
+  {
+    "title": "Thời gian chuyển đi",
+    "index": "tgchuyendi",
+    "width": 60
+  },
+  {
+    "title": "Thời gian chuyển trả",
+    "index": "tgchuyentra",
+    "width": 60
+  },
+  {
+    "title": "Lý do chuyển",
+    "index": "lydochuyen",
+    "width": 200
+  },
+  {
+    "title": "Ghi chú",
+    "index": "ghichu",
+    "width": 300
+  }
+]

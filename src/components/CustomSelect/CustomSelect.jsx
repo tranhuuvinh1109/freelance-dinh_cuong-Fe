@@ -11,7 +11,7 @@ const CustomSelect = ({
   options = [],
 }) => {
   return (
-    <div className={`${className} flex-col justify-start items-center ml-2`}>
+    <div className={`${className} flex-col justify-start items-center`}>
       <span className='text-sm ml-1'>{selectTitle}</span>
       <Select
         name={name}

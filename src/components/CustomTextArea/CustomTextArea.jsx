@@ -11,7 +11,7 @@ const CustomTextArea = ({
   textAreaTitle = '',
 }) => {
   return (
-    <div className={`${className} flex-col justify-start items-center w-full ml-2`}>
+    <div className={`${className} flex-col justify-start items-center w-full`}>
       <span className='text-sm ml-1'>{textAreaTitle}</span>
       <Input.TextArea
         name={name}

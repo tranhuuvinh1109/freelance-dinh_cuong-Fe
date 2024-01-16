@@ -3,7 +3,7 @@ import { FaBars } from 'react-icons/fa6';
 import { FaTimes } from 'react-icons/fa';
 import './Header.css';
 import { useState } from 'react';
-import { navBar } from '../../constant';
+import navBar from '../../constant/navBar.json';
 
 const Header = () => {
   const [openMobile, setOpenMobile] = useState(false);

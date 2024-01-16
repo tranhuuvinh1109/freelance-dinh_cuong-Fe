@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Trang chủ",
+    "url": "/"
+  },
+  {
+    "label": "Báo cáo thông tin Ngày",
+    "url": "/report-day"
+  },
+  {
+    "label": "Truyền thông",
+    "url": "/media"
+  },
+  {
+    "label": "Tạo kế hoạch tuần tra",
+    "url": "/inspect"
+  },
+  {
+    "label": "Phụ lục",
+    "url": "/appendix"
+  }
+]

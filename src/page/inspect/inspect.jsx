@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { TbPackageExport } from 'react-icons/tb';
 import { DatePicker, Divider, Input } from 'antd';
-import { location, staffs } from '../../constant';
+import location from '../../constant/location.json';
+import staffs from '../../constant/staffs.json';
 import { CustomSelect, CustomTextArea } from '../../components';
 import { format } from 'date-fns';
 
@@ -22,6 +23,7 @@ const MakeInspectionPage = () => {
     effect: '',
   });
   const [filteredStaffs, setFilteredStaffs] = useState(staffs);
+
   const handleSelectChange = (name) => (value) => {
     if (name === "location") {
       const filtered = staffs.filter((staff) => staff.branch === value);
@@ -83,7 +85,7 @@ const MakeInspectionPage = () => {
     console.log(data);
   }
   return (
-    <div className="md:flex md:justify-center mt-24 bg-[var(--background-color)] overflow-hidden">
+    <div className="md:flex md:justify-center mt-24 overflow-hidden">
       <div className="w-full md:w-3/5 md:border p-6 rounded-md bg-white md:shadow-xl">
         <button className="mb-10 my-2 border px-4 py-2 rounded-md">
           <Link to="/media/view">
@@ -113,7 +115,7 @@ const MakeInspectionPage = () => {
                 value={data.location}
                 selectTitle='Trạm'
               />
-              <div className="flex-col justify-start items-center md:w-[33%] ml-2 mt-4">
+              <div className="flex-col justify-start items-center md:w-[33%] mt-4">
                 <span className='text-sm ml-1'>Thời gian</span>
                 <DatePicker
                   placeholder='Ngày'

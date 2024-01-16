@@ -1,5 +1,6 @@
 import { Modal, Select, Input } from 'antd';
-import { location, state } from '../../constant';
+import location from '../../constant/location.json';
+import state from '../../constant/state.json';
 import { useState } from 'react';
 import * as Yup from 'yup';
 import { format, subDays, parse } from 'date-fns';
