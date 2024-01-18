@@ -65,11 +65,26 @@ const ViewListReport = () => {
                 <div className="flex items-center mt-2">
                   <h6>1. Thiết bị viễn thông: {chooseReport.cable}</h6>
                 </div>
+                <div className="flex items-center mt-1">
+                  <h6>
+                    <span className="italic font-semibold">Thông tin sự vụ:</span> {chooseReport.sv_device}
+                  </h6>
+                </div>
                 <div className="flex items-center mt-2">
                   <h6>2. Cáp quang: {chooseReport.cable}</h6>
                 </div>
+                <div className="flex items-center mt-1">
+                  <h6>
+                    <span className="italic font-semibold">Thông tin sự vụ:</span> {chooseReport.sv_cable}
+                  </h6>
+                </div>
                 <div className="flex items-center mt-2">
                   <h6>3. Nguồn điện, điều hoà: {chooseReport.power}</h6>
+                </div>
+                <div className="flex items-center mt-1">
+                  <h6>
+                    <span className="italic font-semibold">Thông tin sự vụ:</span> {chooseReport.sv_power}
+                  </h6>
                 </div>
                 <p className="mt-4 text-sm italic">
                   <span className="text-red-600">Chú thích:</span> <span className="font-semibold">BT:</span> Bình

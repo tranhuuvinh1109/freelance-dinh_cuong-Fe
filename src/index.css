@@ -8,7 +8,7 @@
 
   /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87); */
-  background-color: #a8bcdf;
+  /* background-color: #a8bcdf; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,7 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
   --main-theme-color: #1265b6;
   --main-theme-color-hover: #0e4a8b;
-  --background-color: #a8bcdf;
+  /* --background-color: #a8bcdf; */
 }
 
 .ant-btn-primary {

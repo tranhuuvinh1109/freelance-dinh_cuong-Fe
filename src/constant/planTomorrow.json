@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Tuần tra tuyến cáp"
+	},
+	{
+		"name": "Tuần tra tuyến và giám sát"
+	},
+	{
+		"name": "Giám sát thi công"
+	},
+	{
+		"name": "Theo dõi thi công"
+	},
+	{
+		"name": "Bảo dưỡng tuyến"
+	},
+	{
+		"name": "Nghỉ"
+	},
+	{
+		"name": "Gia cố cáp"
+	},
+	{
+		"name": "Kiểm tra tuyến"
+	},
+	{
+		"name": "Khác"
+	},
+	{
+		"name": "Dò định vị cáp"
+	},
+	{
+		"name": "Tuần tra kết hợp dò cáp"
+	},
+	{
+		"name": "Giám sát kết hợp dò cáp"
+	}
+]
