@@ -12,8 +12,11 @@ import {
 import { Toaster } from 'react-hot-toast';
 import './App.css';
 import Layout from './layout/layout';
-
+import checkAPI from './api/checkAPI';
+import { useQuery } from '@tanstack/react-query';
 function App() {
+  useQuery({ queryKey: ['todos'], queryFn: () => checkAPI.checkServer(), retry: 5 });
+
   return (
     <AppContext>
       <div className="App">

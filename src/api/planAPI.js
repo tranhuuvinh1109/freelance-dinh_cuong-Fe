@@ -5,5 +5,6 @@ const planAPI = {
   updatePlan: (id, params) => axiosClient.put(`plan/update/${id}/`, params),
   getPlanDetail: (id) => axiosClient.get(`plan/${id}/`),
   getAllPlan: () => axiosClient.get(`plan/`),
+  deletePlan: (id) => axiosClient.delete(`plan/delete/${id}/`),
 };
 export default planAPI;

@@ -6,26 +6,13 @@ import location from '../../constant/location.json';
 import staffs from '../../constant/staffs.json';
 import jobs from '../../constant/planTomorrow.json';
 import { CustomSelect, CustomTextArea } from '../../components';
-import { format } from 'date-fns';
 import { toast } from 'react-hot-toast';
 import planAPI from '../../api/planAPI';
 import Loading from '../loading/Loading';
-const todayDate = format(new Date(), 'dd/MM/yyyy');
-const initialState = {
-  location: '',
-  date: todayDate,
-  address: 'aaa',
-  cable_line: '111',
-  name_staff: '',
-  phone_staff: '',
-  result: '',
-  plan: '',
-  description: '',
-  construction_unit_information: '',
-  affect: '',
-};
+import { initialStatePlan } from '../../constant/init';
+
 const MakePlanPage = () => {
-  const [data, setData] = useState(initialState);
+  const [data, setData] = useState(initialStatePlan);
   const [filteredStaffs, setFilteredStaffs] = useState(staffs);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -46,7 +33,7 @@ const MakePlanPage = () => {
       if (filteredStaff.length > 0) {
         setData((prevData) => ({
           ...prevData,
-          [name]: value,
+          [name]: filteredStaff[0].name,
           phone_staff: filteredStaff[0].phone,
         }));
       } else {
@@ -55,6 +42,7 @@ const MakePlanPage = () => {
           [name]: value,
         }));
       }
+      return;
     }
     setData((prevData) => ({
       ...prevData,
@@ -71,16 +59,15 @@ const MakePlanPage = () => {
     });
   };
   const handleClearData = () => {
-    setData(initialState);
+    setData(initialStatePlan);
   };
   const handleTestSubmit = async () => {
-    console.log(data);
     try {
       setIsLoading(true);
       const res = await planAPI.createPlan(data);
       if (res.status === 201) {
         toast.success('Tạo kế hoạch thành công !');
-        setData(initialState);
+        setData(initialStatePlan);
       }
     } catch (e) {
       console.log(e);
