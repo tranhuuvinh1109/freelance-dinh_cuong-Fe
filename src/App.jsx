@@ -1,11 +1,22 @@
 import AppContext from './context/AppContext';
 import { Route, Routes } from 'react-router-dom';
-import { MediaPage, ReportDatePage, ViewExcelPage, ViewListReportPage } from './page';
+import {
+  MediaPage,
+  ReportDatePage,
+  ViewExcelPage,
+  ViewListReportPage,
+  MakePlanPage,
+  Appendix,
+  ViewPlanPage,
+} from './page';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
 import Layout from './layout/layout';
-
+import checkAPI from './api/checkAPI';
+import { useQuery } from '@tanstack/react-query';
 function App() {
+  useQuery({ queryKey: ['todos'], queryFn: () => checkAPI.checkServer(), retry: 5 });
+
   return (
     <AppContext>
       <div className="App">
@@ -17,6 +28,9 @@ function App() {
             <Route path="media/view" element={<ViewExcelPage />} />
             <Route path="report-day" element={<ReportDatePage />} />
             <Route path="report/view" element={<ViewListReportPage />} />
+            <Route path="plan" element={<MakePlanPage />} />
+            <Route path="plan/view" element={<ViewPlanPage />} />
+            <Route path="appendix" element={<Appendix />} />
           </Route>
         </Routes>
       </div>
