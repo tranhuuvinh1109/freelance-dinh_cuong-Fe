@@ -6,6 +6,7 @@ import { default as ViewListReportPage } from './viewReport/viewReport';
 import { default as MakePlanPage } from './plan/plan';
 import { default as ViewPlanPage } from './viewPlan/viewPlan';
 import { default as Appendix } from './appendix/appendix';
+import { default as CreateAppendix } from './createAppendix/createAppendix';
 
 export {
   MediaPage,
@@ -16,4 +17,5 @@ export {
   MakePlanPage,
   ViewPlanPage,
   Appendix,
+  CreateAppendix,
 };

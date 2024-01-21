@@ -1,0 +1,82 @@
+[
+	{
+		"location": "QNN/LKN",
+		"address": [
+			{
+				"name": "Cung đoạn 1:(QL1A) Km 1125+000 đến Km 1154+000",
+				"cable": "8FO QL1A/ LKN-QNI 24FO ODA/ LKN-QNI 48FO/ LKN-QNI 2 tuyến trung kế từ trạm LKN - Viettel từ Km1144/QL1A đến Km1152/QL1A "
+			},
+			{
+				"name": "Cung đoạn 2:(QL1A)  Km1154+00 – Km1195+00",
+				"cable": "8FO QL1A/ LKN-QNN 24FO ODA/ LKN-QNN 48FO/ LKN-QNN "
+			}
+		]
+	},
+	{
+		"location": "QNN/TKT",
+		"address": [
+			{
+				"name": "Cung đoạn 1:(QL1A) Km1195+000 – Km1243+280",
+				"cable": "8FO QL1A/QNN-LKN 24FO ODA/QNN-LKN 48FO/QNN-LKN 20FO/QNN-AKE 96FO/QNN-AKE 8FO,48FO/QNN-TYA"
+			},
+			{
+				"name": "Cung đoạn 2: (QL19) -  197 PBC – THĐ – HVG – NDU-QL19",
+				"cable": "8FO/QNN-TYA 8FO/QNN-LKN 24FO/QNN-LKN 48FO/QNN-LKN 20FO/QNN-AKE 48FO/QNN-AKE 96FO/QNN-AKE"
+			},
+			{
+				"name": "Cung đoạn 3:(QL1A) Km1213+500 – Km1222+000 (QL1A) Km1229+000 – Km1243+000 Nội thị thành phố Quy Nhơn - Từ BMH CQB SJC2 - trạm CQB - TK 96FO#1  197 PBC- 05 NVN",
+				"cable": "20FO/QNN-AKE 48FO/QNN-AKE 96FO/QNN-AKE 8FO/QNN-LKN 24FO/QNN-LKN 48FO/QNN-LKN 8FO/QNN-TYA 48FO/QNN-TYA TK96#1 (197PBC-05NV)"
+			},
+			{
+				"name": "Cung đoạn 4:(QL1D) Km0+000 – Km35+000 Nội thị thành phố Quy Nhơn - PBC - PTI (Km1222+000) - TK 96FO#2  197 PBC- 05 NVN",
+				"cable": "20FO/QNN-AKE 48FO/QNN-AKE 96FO/QNN-AKE 8FO/QNN-LKN 8,24,48FO/QNN-TYA TK96#2(197PBC-05NV)"
+			},
+			{
+				"name": "Cung đoạn 5:(QL1A) Km1243 - Km 1280",
+				"cable": "8FO/QNN-TYA 24FO/QNN-TYA 48FO/QNN-TYA"
+			}
+		]
+	},
+	{
+		"location": "QNN/TYA",
+		"address": [
+			{
+				"name": "Cung đoạn 1:- Từ Km1280+00 đến Km1303+000/QL1A = 23Km - Cáp nội Thị: Bắc Thị trấn Chí Thạnh = 2Km",
+				"cable": "8FO/ TYA-QNN 24FO/ TYA-QNN 48FO/ TYA-QNN"
+			},
+			{
+				"name": "Cung đoạn 2: - Từ Km1332+00 đến Km1370+00/QL1A = 38Km. - Nội thành, TP Tuy Hòa (Hướng Nam) =  1Km. - Cáp Trung kế từ Trạm TYA đến VIETEL = 3Km.  - Cáp 48FO Nam TP TYA đi cầu Hùng Vương = 9Km.   - Cáp 48FO đi trong nội Thị xã Đông Hòa 2Km. (QL1A) Km1332+00 -Km1370/QL1A",
+				"cable": "8FO/ TYA-QNN 24FO/ TYA-QNN 48FO/ TYA-QNN"
+			},
+			{
+				"name": "Cung đoạn 3:- Từ Km1332+00 đến Km1370+00/QL1A = 38Km. - Nội thành, TP Tuy Hòa (Hướng Nam) =  1Km.  - Cáp Trung kế từ Trạm TYA đến VIETEL = 3Km.  - Cáp 48FO Nam TP TYA đi cầu Hùng Vương = 9Km.  - Cáp 48FO đi trong nội Thị xã Đông Hòa 2Km. (QL1A) Km1332+00 -Km1370/QL1A ",
+				"cable": "8FO/ TYA-QNN 24FO/ TYA-QNN 48FO/ TYA-QNN"
+			}
+		]
+	},
+	{
+		"location": "QNN/NTG",
+		"address": [
+			{
+				"name": "Cung đoạn 1:(QL1A) Km1370+00 đến Km1418+00/QL1A =  48 Km",
+				"cable": "08FO QL1A/TYA-NTG 24FO ODA/TYA-NTG 48FO New/TYA-NTG "
+			},
+			{
+				"name": "Cung đoạn 2:(QL26) Từ Km0+00 đến Km32+00/QL26 = 32Km (QL26) Từ đường Trần Quý Cáp/QL26 -VNPT Ninh Hòa = 3Km Cáp nội thị:  Từ Trạm NTG - Viettel/KHA = 5Km.",
+				"cable": "08FO QL1A/TYA-NTG 24FO ODA/TYA-NTG 48FO New/TYA-NTG"
+			},
+			{
+				"name": "Cung đoạn 3:(QL1A) Km1418+00 -Km1453+00/QL1A=35km (QL1A)  Km1442+200/QL1A -ĐT657 - Trạm NTG=17km Cáp nội thị:  Ngã Ba Ngoài -đường Trần Quý Cáp -VNPT Ninh Hòa =1km",
+				"cable": "08FO QL1A/TYA-NTG 48FO ODA/TYA-NTG 48FO New/TYA-NTG 48FO/NTG-NTY"
+			},
+			{
+				"name": "Cung đoạn 4:(QL1A) Từ Km1453+00 đến Km 1490+00/QL1A = 37Km",
+				"cable": "08FO QL1A/NTG-PRG 24FO VNPT/NTG-PRG 48FO ODA/NTG-PRG"
+			},
+			{
+				"name": "Cung đoạn 5:(QL1A)Từ Km 1490+00 - Km 1525+00/QL1A = 35Km",
+				"cable": "08FO QL1A/NTG-PRG 24FO VNPT/NTG-PRG 48FO ODA/NTG-PRG "
+			}
+		]
+	}
+]
