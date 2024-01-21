@@ -13,6 +13,7 @@ import location from '../../constant/location.json';
 import { initialStatePlan } from '../../constant/init';
 import dayjs from 'dayjs';
 import { toast } from 'react-hot-toast';
+import { IoDownloadOutline } from 'react-icons/io5';
 const { confirm } = Modal;
 const viewPlan = () => {
   const [dataSelected, setDataSelected] = useState(initialStatePlan);
@@ -156,6 +157,15 @@ const viewPlan = () => {
   }, [data?.data?.data, isLoading]);
   return (
     <div className="mt-24">
+      <div className="flex justify-end mt-8 px-10">
+        <a
+          href="https://mange-zdqk.onrender.com/api/plan-file/"
+          className="flex items-center bg-green-400  px-3 py-2 rounded-md justify-center font-semibold text-white hover:bg-green-600"
+        >
+          <IoDownloadOutline fontSize={26} fontWeight={700} />
+          Download Excel File
+        </a>
+      </div>
       <div className="my-8 md:mx-8 max-h-[455px] overflow-x-auto overflow-y-auto">{renderTable}</div>
       <Modal title="Sửa dữ liệu" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} width={1000}>
         {isPending && <LoadingPage />}

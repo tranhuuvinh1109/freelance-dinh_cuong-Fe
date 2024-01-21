@@ -208,7 +208,7 @@ const ReportDate = () => {
           <div className="flex justify-center mt-4">
             <a
               className="flex items-center font-semibold text-white px-6 py-2 rounded-md bg-red-400 hover:bg-red-600 "
-              href={`http://127.0.0.1:8000/api/report/download/${existWord}`}
+              href={`https://mange-zdqk.onrender.com/api/report/download/${existWord}`}
             >
               <IoMdCloudDownload fontSize={24} fontWeight={600} />
               Tải báo cáo

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TbPackageExport } from 'react-icons/tb';
 import { DatePicker, Divider, Input } from 'antd';
-import location from '../../constant/location.json';
 import staffs from '../../constant/staffs.json';
+import dataTemplate from '../../constant/appendixAddress.json';
 import jobs from '../../constant/planTomorrow.json';
 import { CustomSelect, CustomTextArea } from '../../components';
 import { toast } from 'react-hot-toast';
@@ -11,18 +11,47 @@ import planAPI from '../../api/planAPI';
 import Loading from '../loading/Loading';
 import { initialStatePlan } from '../../constant/init';
 
+const location = dataTemplate.map((item) => {
+  return {
+    label: item.location,
+    value: item.location,
+  };
+});
 const MakePlanPage = () => {
   const [data, setData] = useState(initialStatePlan);
   const [filteredStaffs, setFilteredStaffs] = useState(staffs);
   const [isLoading, setIsLoading] = useState(false);
+  const [addressList, setAddressList] = useState({
+    addressNameList: [],
+    cableLineList: [],
+  });
 
   const handleSelectChange = (name) => (value) => {
     if (name === 'location') {
       const filtered = staffs.filter((staff) => staff.branch === value);
+      const result = dataTemplate.find((data) => data.location === value);
+      const addressNameList = result.address.map((address) => {
+        return {
+          label: address.name,
+          value: address.name,
+        };
+      });
+      const cableLineList = result.address.map((address) => {
+        return {
+          label: address.cable,
+          value: address.cable,
+        };
+      });
+      setAddressList({
+        addressNameList,
+        cableLineList,
+      });
       setFilteredStaffs(filtered);
       setData((prevData) => ({
         ...prevData,
         [name]: value,
+        cable_line: '',
+        address: '',
         name_staff: '',
         phone_staff: '',
       }));
@@ -122,6 +151,7 @@ const MakePlanPage = () => {
                   name="address"
                   onChange={handleSelectChange('address')}
                   value={data.address}
+                  options={addressList.addressNameList}
                   selectTitle="Cung đoạn"
                 />
                 <CustomSelect
@@ -129,6 +159,7 @@ const MakePlanPage = () => {
                   name="cable_line"
                   onChange={handleSelectChange('cable_line')}
                   value={data.cable_line}
+                  options={addressList.cableLineList}
                   selectTitle="Tuyến cáp"
                 />
               </div>
