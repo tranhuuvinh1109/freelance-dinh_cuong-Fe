@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Tạo kế hoạch tuần tra",
+    "url": "/"
+  },
+  {
+    "label": "Truyền thông",
+    "url": "/media"
+  },
+  {
+    "label": "Báo cáo thông tin Ngày",
+    "url": "/report-day"
+  },
+  {
+    "label": "Phụ lục tồn tại",
+    "url": "/appendix"
+  }
+]

@@ -3,35 +3,23 @@ import reportAPI from '../../api/reportAPI';
 import { format, subDays, parse } from 'date-fns';
 import { createPortal } from 'react-dom';
 import { LoadingPage } from '..';
+import { useQuery } from '@tanstack/react-query';
 
 const ViewListReport = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [listReport, setListReport] = useState();
   const [chooseReport, setChooseReport] = useState();
-  const fetchData = async () => {
-    setIsLoading(true);
-    try {
-      const res = await reportAPI.getAllReport();
-      console.log(res);
-      if (res.status === 200) {
-        setListReport(res.data.data);
-        setChooseReport(res.data.data[0]);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-    setIsLoading(false);
-  };
+  const { data, isLoading } = useQuery({ queryKey: ['todos'], queryFn: () => reportAPI.getAllReport() });
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (data?.data?.data) {
+      setChooseReport(data?.data?.data[0]);
+    }
+  }, [data?.data?.data]);
   return (
     <>
       {isLoading && createPortal(<LoadingPage />, document.body)}
       <div className="md:px-24 mt-24">
         <div className="md:flex justify-between">
           <div className="md:w-[30%] h-[300px] mb-10 md:mb-0 overflow-y-auto p-4">
-            {listReport?.map((report) => {
+            {data?.data?.data?.map((report) => {
               return (
                 <div
                   key={report.id}
@@ -65,12 +53,33 @@ const ViewListReport = () => {
                 <div className="flex items-center mt-2">
                   <h6>1. Thiết bị viễn thông: {chooseReport.cable}</h6>
                 </div>
+                {chooseReport.sv_device && (
+                  <div className="flex items-center mt-1">
+                    <h6>
+                      <span className="italic font-semibold">Thông tin sự vụ:</span> {chooseReport.sv_device}
+                    </h6>
+                  </div>
+                )}
                 <div className="flex items-center mt-2">
                   <h6>2. Cáp quang: {chooseReport.cable}</h6>
                 </div>
+                {chooseReport.sv_device && (
+                  <div className="flex items-center mt-1">
+                    <h6>
+                      <span className="italic font-semibold">Thông tin sự vụ:</span> {chooseReport.sv_cable}
+                    </h6>
+                  </div>
+                )}
                 <div className="flex items-center mt-2">
                   <h6>3. Nguồn điện, điều hoà: {chooseReport.power}</h6>
                 </div>
+                {chooseReport.sv_power && (
+                  <div className="flex items-center mt-1">
+                    <h6>
+                      <span className="italic font-semibold">Thông tin sự vụ:</span> {chooseReport.sv_power}
+                    </h6>
+                  </div>
+                )}
                 <p className="mt-4 text-sm italic">
                   <span className="text-red-600">Chú thích:</span> <span className="font-semibold">BT:</span> Bình
                   thường, <span className="font-semibold">SC:</span> Sự cố

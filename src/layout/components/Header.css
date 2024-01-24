@@ -4,10 +4,10 @@
 }
 .nav-item {
   /* font-family: 'Montserrat', cursive; */
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }
 .nav-item-active {
   font-weight: 700;
-  color: rgb(249 115 22);
+  color: var(--main-theme-color);
 }

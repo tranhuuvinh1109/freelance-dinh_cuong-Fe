@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Chọn trạm",
+    "value": ""
+  },
+  {
+    "label": "QNN/LKN",
+    "value": "QNN/LKN"
+  },
+  {
+    "label": "QNN/TKT",
+    "value": "QNN/TKT"
+  },
+  {
+    "label": "QNN/TYA",
+    "value": "QNN/TYA"
+  },
+  {
+    "label": "QNN/NTG",
+    "value": "QNN/NTG"
+  },
+  {
+    "label": "QNN/GRG",
+    "value": "QNN/GRG"
+  },
+  {
+    "label": "QNN/197.PBC",
+    "value": "QNN/197.PBC"
+  },
+  {
+    "label": "CQB.SJC2",
+    "value": "CQB.SJC2"
+  }
+]
