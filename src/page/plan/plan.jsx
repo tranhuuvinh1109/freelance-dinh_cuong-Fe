@@ -24,27 +24,26 @@ const MakePlanPage = () => {
   const [addressList, setAddressList] = useState({
     addressNameList: [],
     cableLineList: [],
+    originList: [],
   });
 
   const handleSelectChange = (name) => (value) => {
     if (name === 'location') {
       const filtered = staffs.filter((staff) => staff.branch === value);
       const result = dataTemplate.find((data) => data.location === value);
-      const addressNameList = result.address.map((address) => {
-        return {
-          label: address.name,
-          value: address.name,
-        };
-      });
-      const cableLineList = result.address.map((address) => {
-        return {
-          label: address.cable,
-          value: address.cable,
-        };
-      });
+
       setAddressList({
-        addressNameList,
-        cableLineList,
+        addressNameList:
+          result?.address.map((address) => ({
+            label: address.name,
+            value: address.name,
+          })) || [],
+        cableLineList:
+          result?.address.map((address) => ({
+            label: address.cable,
+            value: address.cable,
+          })) || [],
+        originList: result?.address || [],
       });
       setFilteredStaffs(filtered);
       setData((prevData) => ({
@@ -57,8 +56,26 @@ const MakePlanPage = () => {
       }));
       return;
     }
+    if (name === 'cable_line') {
+      const result = addressList.originList.find((item) => item.cable === value);
+      setData((prevData) => ({
+        ...prevData,
+        address: result.name,
+        cable_line: result.cable,
+      }));
+      return;
+    }
+    if (name === 'address') {
+      const result = addressList.originList.find((item) => item.name === value);
+      setData((prevData) => ({
+        ...prevData,
+        address: result.name,
+        cable_line: result.cable,
+      }));
+      return;
+    }
     if (name === 'name_staff') {
-      const filteredStaff = staffs.filter((staff) => staff.id === value);
+      const filteredStaff = staffs.filter((staff) => staff.name === value);
       if (filteredStaff.length > 0) {
         setData((prevData) => ({
           ...prevData,
@@ -171,7 +188,7 @@ const MakePlanPage = () => {
                     name="name_staff"
                     onChange={handleSelectChange('name_staff')}
                     options={filteredStaffs.map((staff) => ({
-                      value: staff.id,
+                      value: staff.name,
                       label: staff.name,
                     }))}
                     value={data.name_staff}
