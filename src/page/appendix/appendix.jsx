@@ -28,7 +28,7 @@ const Appendix = () => {
       title: 'Action',
       key: 'action',
       align: 'center',
-      width: 150,
+      width: '10%',
       render: (text, record) => (
         <div className="align-center flex justify-center text-lg gap-2">
           <button
