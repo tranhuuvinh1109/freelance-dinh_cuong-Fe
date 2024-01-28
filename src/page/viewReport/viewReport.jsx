@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import reportAPI from '../../api/reportAPI';
 import { format, subDays, parse } from 'date-fns';
-import { createPortal } from 'react-dom';
-import { LoadingPage } from '..';
 import { useQuery } from '@tanstack/react-query';
+import Loading from '../loading/Loading';
 
 const ViewListReport = () => {
   const [chooseReport, setChooseReport] = useState();
@@ -15,7 +14,7 @@ const ViewListReport = () => {
   }, [data?.data?.data]);
   return (
     <>
-      {isLoading && createPortal(<LoadingPage />, document.body)}
+      {isLoading && <Loading />}
       <div className="md:px-24 mt-24">
         <div className="md:flex justify-between">
           <div className="md:w-[30%] h-[300px] mb-10 md:mb-0 overflow-y-auto p-4">
@@ -26,9 +25,19 @@ const ViewListReport = () => {
                   onClick={() => setChooseReport(report)}
                   className={`${
                     chooseReport?.id === report.id ? 'bg-slate-200' : ''
-                  } px-2 py-1 border hover:bg-slate-200 hover:cursor-pointer font-semibold`}
+                  } px-2 py-1 border hover:bg-slate-200 hover:cursor-pointer font-semibold flex justify-between items-center`}
                 >
-                  Báo cáo {report.location} - {report.date_report}
+                  <span>
+                    Báo cáo {report.location} - {report.date_report}
+                  </span>
+                  <a
+                    href={`https://mange-zdqk.onrender.com/api/report/download/${report.id}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-green-500 hover:bg-green-700 px-2 rounded-md text-white font-semibold"
+                  >
+                    Tải báo cáo
+                  </a>
                 </div>
               );
             })}
@@ -40,7 +49,7 @@ const ViewListReport = () => {
                   Báo cáo ADG Trạm VT {chooseReport.location} ngày {chooseReport.date_report}
                 </h4>
                 <h6 className="mt-6">
-                  Kính gửi: <span className="font-semibold">Ban lãnh đạo Đài VT QNN</span>
+                  Kính gửi: <span className="font-semibold">Lãnh đạo Đài VT QNN</span>
                 </h6>
                 <h6 className="mt-2">
                   Trạm VT {chooseReport.location} báo cáo tình hình thông tin liên lạc từ 07h00 ngày{' '}
