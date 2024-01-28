@@ -83,7 +83,7 @@ const MediaPage = () => {
               >
                 {result.map((staff, index) => {
                   return (
-                    <option key={index} value={staff.id}>
+                    <option key={index} value={staff.name}>
                       {staff.name}
                     </option>
                   );
