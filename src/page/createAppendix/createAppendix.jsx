@@ -1,8 +1,6 @@
 import { DatePicker, Divider, Input } from 'antd';
-import { CustomSelect } from '../../components';
 import { initialStateAppendix } from '../../constant/init';
 import { useState } from 'react';
-import appendixData from '../../constant/appendixAddress.json';
 import { useMutation } from '@tanstack/react-query';
 import appendixAPI from '../../api/apeendixAPI';
 import { toast } from 'react-hot-toast';
@@ -20,12 +18,6 @@ const CreateAppendix = () => {
       setData(initialStateAppendix);
       navigate('/appendix');
     },
-  });
-  const addresss = appendixData.map((item) => {
-    return {
-      label: item.location,
-      value: item.location,
-    };
   });
 
   const onChange = (e, name) => {
@@ -56,18 +48,19 @@ const CreateAppendix = () => {
             </button>
             <Divider orientation="left">Thông tin vị trí</Divider>
             <div className="md:flex md:justify-between w-full">
-              <CustomSelect
-                className="md:w-[40%]"
-                selectTitle="Cung đoạn"
-                value={data.address}
-                options={addresss}
-                name="address"
-                onChange={(e) => onChange(e, 'address')}
-              />
+              <div className="md:w-[40%]">
+                <span className="text-sm ml-1">Cung đoạn</span>
+                <Input
+                  className="mt-2 px-3 py-1"
+                  value={data.address}
+                  name="address"
+                  onChange={(e) => onChange(e.target.value, 'address')}
+                />
+              </div>
               <div className="md:w-[40%]">
                 <span className="text-sm ml-1">Hệ thống</span>
                 <Input
-                  className="mt-2 p-1"
+                  className="mt-2 px-3 py-1"
                   value={data.system}
                   name="system"
                   onChange={(e) => onChange(e.target.value, 'system')}
