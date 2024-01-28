@@ -4,24 +4,36 @@ import { MdEdit, MdDeleteForever } from 'react-icons/md';
 import { FaPlus } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import { IoDownloadOutline } from 'react-icons/io5';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import appendixAPI from '../../api/apeendixAPI';
 import { LoadingPage } from '..';
 import { columnsAppendix } from '../../constant/colums';
 import { Link } from 'react-router-dom';
+import Form from './components/form';
 
 const Appendix = () => {
-  const [isCreateModalVisible, setIsCreateModalVisible] = useState(false);
   const [isEditModalVisible, setIsEditModalVisible] = useState(false);
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
-  const [currentRecord, setCurrentRecord] = useState(null);
-  // const [data, setData] = useState({});
+  const [chooseDelete, setChooseDelete] = useState();
+  const [dataEdit, setDataEdit] = useState();
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['appendix'],
     queryFn: () => appendixAPI.getAllAppendix(),
   });
-  console.log(data, isLoading);
+  const { mutate: mutateDelete, isLoading: isLoadingDelete } = useMutation({
+    mutationFn: () => appendixAPI.deleteAppendix(chooseDelete),
+    onSuccess: (e) => {
+      toast.success(e.data.message);
+      refetch();
+      setIsDeleteModalVisible(false);
+    },
+    onError: (e) => {
+      console.log(e);
+      setIsDeleteModalVisible(false);
+    },
+  });
+
   const columns = [
     ...columnsAppendix,
     {
@@ -48,63 +60,30 @@ const Appendix = () => {
     },
   ];
 
-  const handleCreate = () => {
-    document.body.style.overflow = 'hidden';
-    // setData({});
-    setIsCreateModalVisible(true);
-  };
-  // const handleCreateOk = () => {
-  //   setDataSource((prevDataSource) => [
-  //     ...prevDataSource,
-  //     {
-  //       ...data,
-  //       key: prevDataSource.length,
-  //       stt: prevDataSource.length + 1,
-  //     },
-  //   ]); // fake create
-  //   toast.success('Tạo mới bản ghi thành công!');
-  //   setIsCreateModalVisible(false);
-  // };
-  // const handleCreateCancel = () => {
-  //   document.body.style.overflow = 'auto';
-  //   setIsCreateModalVisible(false);
-  // };
-
-  const handleEdit = () => {
-    document.body.style.overflow = 'hidden';
-    // setData(record);
+  const handleEdit = (record) => {
+    setDataEdit(record);
     setIsEditModalVisible(true);
   };
-  // const handleEditOk = () => {
-  //   setDataSource((prevDataSource) =>
-  //     prevDataSource.map((item) => (item.key === data.key ? { ...item, ...data } : item)),
-  //   );
-  //   toast.success('Chỉnh sửa bản ghi thành công!');
-  //   setIsEditModalVisible(false);
-  // };
-  // const handleEditCancel = () => {
-  //   document.body.style.overflow = 'auto';
-  //   setIsEditModalVisible(false);
-  // };
+  const handleEditCancel = () => {
+    setIsEditModalVisible(false);
+    setDataEdit();
+  };
 
   const handleDelete = (record) => {
-    document.body.style.overflow = 'hidden';
-    setCurrentRecord(record);
     setIsDeleteModalVisible(true);
+    setChooseDelete(record?.id);
   };
-  const handleDeleteOk = () => {
-    // setDataSource((prevDataSource) => prevDataSource.filter((item) => item.key !== currentRecord.key)); // fake remove
-    toast.success('Xóa bản ghi thành công!');
-    setIsDeleteModalVisible(false);
+  const handleDeleteOk = async () => {
+    await mutateDelete();
   };
   const handleDeleteCancel = () => {
-    document.body.style.overflow = 'auto';
+    setIsDeleteModalVisible();
     setIsDeleteModalVisible(false);
   };
 
   return (
     <>
-      {isLoading && <LoadingPage />}
+      {(isLoading || isLoadingDelete) && <LoadingPage />}
       <div className="md:flex md:justify-center mt-24 bg-white overflow-hidden flex flex-col">
         <div className="flex flex-col gap-2 items-center justify-center mt-8 font-semibold">
           <h1 className="text-lg md:text-2xl">PHỤ LỤC: TỔNG HỢP CÁP QUANG KHÔNG ĐÚNG QUY HOẠCH</h1>
@@ -145,10 +124,20 @@ const Appendix = () => {
           title={<h2 className="text-xl font-semibold">Xóa bản ghi</h2>}
           open={isDeleteModalVisible}
           onOk={handleDeleteOk}
+          setIsEditModalVisible={setIsEditModalVisible}
           onCancel={handleDeleteCancel}
         >
           <p>Bạn muốn xóa bản ghi này?</p>
         </Modal>
+        {dataEdit && isEditModalVisible && (
+          <Form
+            title={'Chỉnh sửa'}
+            dataEdit={dataEdit}
+            onCancel={handleEditCancel}
+            visible={isEditModalVisible}
+            refetch={refetch}
+          />
+        )}
       </div>
     </>
   );
