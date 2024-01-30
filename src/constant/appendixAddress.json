@@ -45,12 +45,12 @@
 				"cable": "8FO/ TYA-QNN 24FO/ TYA-QNN 48FO/ TYA-QNN"
 			},
 			{
-				"name": "Cung đoạn 2: - Từ Km1332+00 đến Km1370+00/QL1A = 38Km. - Nội thành, TP Tuy Hòa (Hướng Nam) =  1Km. - Cáp Trung kế từ Trạm TYA đến VIETEL = 3Km.  - Cáp 48FO Nam TP TYA đi cầu Hùng Vương = 9Km.   - Cáp 48FO đi trong nội Thị xã Đông Hòa 2Km. (QL1A) Km1332+00 -Km1370/QL1A",
-				"cable": "8FO/ TYA-QNN 24FO/ TYA-QNN 48FO/ TYA-QNN"
+				"name": "Cung đoạn 2: - Từ Km1303+000 đến Km1332+000/QL1A = 29Km. - Cáp nội thị: 1Km hướng Bắc thành phố Tuy Hòa, 2Km hướng nam thị trấn Chí Thạnh.",
+				"cable": "8FO/ TYA-QNN, 24FO/ TYA-QNN, 48FO/ TYA-QNN"
 			},
 			{
-				"name": "Cung đoạn 3:- Từ Km1332+00 đến Km1370+00/QL1A = 38Km. - Nội thành, TP Tuy Hòa (Hướng Nam) =  1Km.  - Cáp Trung kế từ Trạm TYA đến VIETEL = 3Km.  - Cáp 48FO Nam TP TYA đi cầu Hùng Vương = 9Km.  - Cáp 48FO đi trong nội Thị xã Đông Hòa 2Km. (QL1A) Km1332+00 -Km1370/QL1A ",
-				"cable": "8FO/ TYA-QNN 24FO/ TYA-QNN 48FO/ TYA-QNN"
+				"name": "Cung đoạn 3: Từ Km1332+00 đến Km1370+00/QL1A = 38Km.  - Nội thành, TP Tuy Hòa (Hướng Nam) =  1Km. - Cáp Trung kế từ Trạm TYA đến VIETEL = 3Km. - Cáp 48FO Nam TP TYA đi cầu Hùng Vương = 9Km. - Cáp 48FO đi trong nội Thị xã Đông Hòa 2Km. (QL1A) Km1332+00 -Km1370/QL1A",
+				"cable": "8FO/ TYA-QNN, 24FO/ TYA-QNN, 48FO/ TYA-QNN"
 			}
 		]
 	},

@@ -39,7 +39,7 @@ const MediaPage = () => {
 
   const handleChange = (e) => {
     if (e.target.name === 'name_ttcq') {
-      const item = staffs.filter((staff) => staff.id === e.target.value);
+      const item = staffs.filter((staff) => staff.name === e.target.value);
       if (item.length > 0) {
         setData({
           ...data,
@@ -77,7 +77,6 @@ const MediaPage = () => {
             <div className="md:w-[30%] my-2 w-full flex items-center ">
               <select
                 name="name_ttcq"
-                defaultValue={result[0].id}
                 onChange={handleChange}
                 className=" w-full px-[9px] py-[7px] border rounded-md font-semibold"
               >

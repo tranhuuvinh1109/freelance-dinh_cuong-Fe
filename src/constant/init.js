@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 const todayDate = format(new Date(), 'dd/MM/yyyy');
-const today = new Date();
+// const today = new Date();
 const initialStatePlan = {
   id: 0,
   location: '',
@@ -22,8 +22,8 @@ const initialStateAppendix = {
   system: '',
   cable_qh: '',
   cable_uc: '',
-  time_move: today,
-  time_back: today,
+  time_move: '',
+  time_back: '',
   reason: '',
   note: '',
 };
