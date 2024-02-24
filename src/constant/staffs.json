@@ -66,6 +66,12 @@
     "phone": "0945153457"
   },
   {
+    "id": "35",
+    "branch": "QNN/TKT",
+    "name": "Hoàng Đình Phong",
+    "phone": "0918334748"
+  },
+  {
     "id": "13",
     "branch": "QNN/TYA",
     "name": "Đinh Nguyên Cao",
@@ -106,6 +112,12 @@
     "branch": "QNN/TYA",
     "name": "Lê Ngọc Triên",
     "phone": "0913452222"
+  },
+  {
+    "id": "34",
+    "branch": "QNN/TYA",
+    "name": "Nguyễn Hữu Chiến",
+    "phone": "0918955738"
   },
   {
     "id": "20",
@@ -190,5 +202,11 @@
     "branch": "QNN/NTC",
     "name": "Nguyễn Văn Thanh",
     "phone": "0913429009"
+  },
+  {
+    "id": "36",
+    "branch": "QNN/NTG",
+    "name": "Tống Lê Minh Châu",
+    "phone": "0949271901"
   }
 ]
