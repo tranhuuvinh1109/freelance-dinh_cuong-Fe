@@ -238,5 +238,17 @@
     "branch": "QNN/QNN",
     "name": "Ngô Xuân Bình",
     "phone": "0911023979"
+  },
+  {
+    "id": "41",
+    "branch": "QNN/NTG",
+    "name": "Lê Viết Bảo",
+    "phone": "0913448558"
+  },
+  {
+    "id": "42",
+    "branch": "QNN/NTG",
+    "name": "Lê Thiên Phú",
+    "phone": "0913135493"
   }
 ]
