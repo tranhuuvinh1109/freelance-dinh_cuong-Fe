@@ -78,5 +78,9 @@
 				"cable": "08FO QL1A/NTG-PRG 24FO VNPT/NTG-PRG 48FO ODA/NTG-PRG "
 			}
 		]
+	},
+	{
+		"location": "QNN/QNN",
+		"address": []
 	}
 ]

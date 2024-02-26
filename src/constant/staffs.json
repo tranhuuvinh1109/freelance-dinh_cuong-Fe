@@ -145,61 +145,61 @@
   },
   {
     "id": "24",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Doãn Ngọc Đào",
     "phone": "0914738499"
   },
   {
     "id": "25",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Bùi Năng Học",
     "phone": "0914461222"
   },
   {
     "id": "26",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Nguyễn Hoàng Dũng",
     "phone": "0914088701"
   },
   {
     "id": "27",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Trần Quang Bắc",
     "phone": "0947745577"
   },
   {
     "id": "28",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Nguyễn Xuân Đàm",
     "phone": "0945505105"
   },
   {
     "id": "29",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Phan Bá Đường",
     "phone": "0832577855"
   },
   {
     "id": "30",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Ngô Đình Anh Dũng",
     "phone": "0946147342"
   },
   {
     "id": "31",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Trần Nho Anh",
     "phone": "0914456070"
   },
   {
     "id": "32",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Huỳnh Thái Trung",
     "phone": "0914044822"
   },
   {
     "id": "33",
-    "branch": "QNN/NTC",
+    "branch": "QNN/NTG",
     "name": "Nguyễn Văn Thanh",
     "phone": "0913429009"
   },
@@ -208,5 +208,35 @@
     "branch": "QNN/NTG",
     "name": "Tống Lê Minh Châu",
     "phone": "0949271901"
+  },
+  {
+    "id": "37",
+    "branch": "QNN/QNN",
+    "name": "Nguyễn Đình Cường",
+    "phone": "0917781804"
+  },
+  {
+    "id": "38",
+    "branch": "QNN/QNN",
+    "name": "Trần Chí Công",
+    "phone": "0914683709"
+  },
+  {
+    "id": "39",
+    "branch": "QNN/QNN",
+    "name": "Mai Trung Đức",
+    "phone": "0888076863"
+  },
+  {
+    "id": "39",
+    "branch": "QNN/QNN",
+    "name": "Nguyễn Kỳ Phú",
+    "phone": "0913463132"
+  },
+  {
+    "id": "40",
+    "branch": "QNN/QNN",
+    "name": "Ngô Xuân Bình",
+    "phone": "0911023979"
   }
 ]
