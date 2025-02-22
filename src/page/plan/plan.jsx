@@ -10,6 +10,7 @@ import { toast } from 'react-hot-toast';
 import planAPI from '../../api/planAPI';
 import Loading from '../loading/Loading';
 import { initialStatePlan } from '../../constant/init';
+import logo from '../../assets/vnpt-logo.png';
 
 const location = dataTemplate.map((item) => {
   return {
@@ -135,11 +136,7 @@ const MakePlanPage = () => {
             </Link>
           </button>
           <div className="flex justify-center">
-            <img
-              className="h-[80px] md:h-[100px]"
-              src="https://brademar.com/wp-content/uploads/2022/09/VNPT-Logo-PNG-1.png"
-              alt="VNPT"
-            />
+            <img className="h-[80px] md:h-[100px]" src={logo} alt="VNPT" />
           </div>
           <form className="mt-4">
             <h4 className="text-center font-semibold text-xl">KẾ HOẠCH TUẦN TRA</h4>

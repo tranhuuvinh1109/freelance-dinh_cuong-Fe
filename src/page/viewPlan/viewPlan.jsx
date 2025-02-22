@@ -14,6 +14,7 @@ import { initialStatePlan } from '../../constant/init';
 import dayjs from 'dayjs';
 import { toast } from 'react-hot-toast';
 import { IoDownloadOutline } from 'react-icons/io5';
+import { API_URL } from '../../constant/common';
 const { confirm } = Modal;
 const viewPlan = () => {
   const [dataSelected, setDataSelected] = useState(initialStatePlan);
@@ -159,7 +160,7 @@ const viewPlan = () => {
     <div className="mt-24">
       <div className="flex justify-end mt-8 px-10">
         <a
-          href="https://mange-zdqk.onrender.com/api/plan-file/"
+          href={`${API_URL}/plan/plan-file`}
           className="flex items-center bg-green-400  px-3 py-2 rounded-md justify-center font-semibold text-white hover:bg-green-600"
         >
           <IoDownloadOutline fontSize={26} fontWeight={700} />

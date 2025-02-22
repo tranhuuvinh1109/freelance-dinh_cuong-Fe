@@ -1,7 +1,7 @@
 import axios from 'axios';
 const axiosClient = axios.create({
-  // baseURL: 'http://127.0.0.1:8000/api/',
-  baseURL: 'https://mange-zdqk.onrender.com/api/',
+  // baseURL: 'http://127.0.0.1:3001/',
+  baseURL: 'https://vnpt-be-node.vercel.app/',
   headers: {
     'Content-Type': 'application/json',
   },
